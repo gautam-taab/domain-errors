@@ -14,6 +14,10 @@ import { NoValidSessionError } from "./NoValidSessionError";
 import { OwnershipError } from "./OwnershipError";
 import { StaleSessionError } from "./StaleSessionError";
 import { ValidationError } from "./ValidationError";
+import { BogonNetworkError } from "./BogonNetworkError";
+import { InvalidAuthTokenError } from "./InvalidAuthTokenError";
+import { MissingAuthTokenError } from "./MissingAuthTokenError";
+import { RegionBlockedError } from "./RegionBlockedError";
 
 import { BadRequestError } from "../core/BadRequestError";
 import { NotFoundError } from "../core/NotFoundError";
@@ -129,6 +133,34 @@ describe("Domain Specific Errors", () => {
     expect(error instanceof UnprocessableEntityError).toBe(true);
     expect(error.status).toBe(422);
     expect(error.code).toBe("VALIDATION_ERROR");
+  });
+
+  it("BogonNetworkError extends ForbiddenError", () => {
+    const error = new BogonNetworkError();
+    expect(error instanceof ForbiddenError).toBe(true);
+    expect(error.status).toBe(403);
+    expect(error.code).toBe("BOGON_NETWORK");
+  });
+
+  it("InvalidTokenError extends UnauthorizedError", () => {
+    const error = new InvalidAuthTokenError();
+    expect(error instanceof UnauthorizedError).toBe(true);
+    expect(error.status).toBe(401);
+    expect(error.code).toBe("INVALID_AUTH_TOKEN");
+  });
+
+  it("MissingAuthTokenError extends UnauthorizedError", () => {
+    const error = new MissingAuthTokenError();
+    expect(error instanceof UnauthorizedError).toBe(true);
+    expect(error.status).toBe(401);
+    expect(error.code).toBe("MISSING_AUTH_TOKEN");
+  });
+
+  it("RegionBlockedError extends ForbiddenError", () => {
+    const error = new RegionBlockedError();
+    expect(error instanceof ForbiddenError).toBe(true);
+    expect(error.status).toBe(403);
+    expect(error.code).toBe("REGION_BLOCKED");
   });
 
   it("Allows overriding specific details at instantiation", () => {

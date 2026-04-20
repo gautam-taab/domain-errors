@@ -23,6 +23,10 @@ export * from "./domains/ResourceAlreadyExistsError";
 export * from "./domains/StaleSessionError";
 export * from "./domains/UserNotFoundError";
 export * from "./domains/ValidationError";
+export * from "./domains/MissingAuthTokenError";
+export * from "./domains/InvalidAuthTokenError";
+export * from "./domains/RegionBlockedError";
+export * from "./domains/BogonNetworkError";
 
 export * from "./utils/formatDomainError";
 
