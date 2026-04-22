@@ -3,10 +3,11 @@
   "version": "0.2.7",
   "description": "Custom domain errors to be used across TAAB",
   "main": "./dist/index.js",
-  "typing": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
       "import": "./dist/index.js"
     }
   },
