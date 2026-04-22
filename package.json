@@ -3,8 +3,8 @@
   "version": "0.2.3",
   "description": "Custom domain errors to be used across TAAB",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": "./dist/index.js",
   "files": [
     "dist"
