@@ -1,6 +1,6 @@
 {
   "name": "@gautam-taab/domain-errors",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Custom domain errors to be used across TAAB",
   "type": "module",
   "main": "./dist/index.js",
