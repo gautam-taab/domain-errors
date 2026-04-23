@@ -6,6 +6,7 @@ import { InvalidCredentialsError } from "./InvalidCredentialsError";
 import { EmailAlreadyInUseError } from "./EmailAlreadyInUseError";
 import { ResourceAlreadyExistsError } from "./ResourceAlreadyExistsError";
 import { AccountLockedError } from "./AccountLockedError";
+import { AccountBlockedError } from "./AccountBlockedError";
 import { RateLimitExceededError } from "./RateLimitExceededError";
 import { InvalidInputFormatError } from "./InvalidInputFormatError";
 import { DatabaseConnectionError } from "./DatabaseConnectionError";
@@ -77,6 +78,13 @@ describe("Domain Specific Errors", () => {
     expect(error instanceof ForbiddenError).toBe(true);
     expect(error.status).toBe(403);
     expect(error.code).toBe("ACCOUNT_LOCKED");
+  });
+
+  it("AccountBlockedError extends ForbiddenError", () => {
+    const error = new AccountBlockedError();
+    expect(error instanceof ForbiddenError).toBe(true);
+    expect(error.status).toBe(403);
+    expect(error.code).toBe("ACCOUNT_BLOCKED");
   });
 
   it("RateLimitExceededError extends TooManyRequestsError", () => {

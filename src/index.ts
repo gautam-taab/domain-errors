@@ -9,6 +9,7 @@ export * from "./core/TooManyRequestsError";
 export * from "./core/InternalServerError";
 
 export * from "./domains/AccountLockedError";
+export * from "./domains/AccountBlockedError";
 export * from "./domains/ConstraintError";
 export * from "./domains/DatabaseConnectionError";
 export * from "./domains/EmailAlreadyInUseError";
