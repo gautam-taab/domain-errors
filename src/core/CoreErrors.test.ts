@@ -7,6 +7,9 @@ import { ConflictError } from "./ConflictError";
 import { UnprocessableEntityError } from "./UnprocessableEntityError";
 import { TooManyRequestsError } from "./TooManyRequestsError";
 import { InternalServerError } from "./InternalServerError";
+import { BadGatewayError } from "./BadGatewayError";
+import { ServiceUnavailableError } from "./ServiceUnavailableError";
+import { GatewayTimeoutError } from "./GatewayTimeoutError";
 
 describe("Core DomainErrors", () => {
   it("BadRequestError inherits correct properties", () => {
@@ -66,5 +69,26 @@ describe("Core DomainErrors", () => {
     expect(error.status).toBe(500);
     expect(error.type).toBe("internal-server-error");
     expect(error.title).toBe("Internal Server Error");
+  });
+
+  it("BadGatewayError sets status to 502", () => {
+    const error = new BadGatewayError();
+    expect(error.status).toBe(502);
+    expect(error.type).toBe("bad-gateway");
+    expect(error.title).toBe("Bad Gateway");
+  });
+
+  it("ServiceUnavailableError sets status to 503", () => {
+    const error = new ServiceUnavailableError();
+    expect(error.status).toBe(503);
+    expect(error.type).toBe("service-unavailable");
+    expect(error.title).toBe("Service Unavailable");
+  });
+
+  it("GatewayTimeoutError sets status to 504", () => {
+    const error = new GatewayTimeoutError();
+    expect(error.status).toBe(504);
+    expect(error.type).toBe("gateway-timeout");
+    expect(error.title).toBe("Gateway Timeout");
   });
 });

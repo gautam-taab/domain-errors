@@ -29,7 +29,8 @@ Works with both `import` and `require`.
 
 - **Core errors** set the HTTP status, `type` and `title`: `BadRequestError` (400), `UnauthorizedError` (401),
   `ForbiddenError` (403), `NotFoundError` (404), `ConflictError` (409), `UnprocessableEntityError` (422),
-  `TooManyRequestsError` (429), `InternalServerError` (500).
+  `TooManyRequestsError` (429), `InternalServerError` (500), `BadGatewayError` (502), `ServiceUnavailableError` (503),
+  `GatewayTimeoutError` (504).
 - **Domain errors** extend a core error and add a default `detail` and an UPPER_SNAKE `code`, for example
   `UserNotFoundError` (`USER_NOT_FOUND`) or `InsufficientBalanceError` (`INSUFFICIENT_BALANCE`). All are exported
   from the package root.
